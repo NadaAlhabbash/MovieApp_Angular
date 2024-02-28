@@ -1,1 +1,75 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: 0;
+    transition: all 0.5s ease;
+    color: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e1e;
+    user-select: none;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 425px;
+    height: 90vh;
+    max-height: 850px;
+    background: #242a32;
+    padding: 30px;
+    padding-top: 45px;
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        max-height: none;
+    }
+}
+
+.search-container {
+    margin: 15px;
+    margin-left: 0;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background-color: #3a3f47;
+    border-radius: 15px;
+}
+
+.search-input {
+    padding: 15px;
+    border: none;
+    font-size: 18px;
+    width: 200px;
+    background-color: transparent;
+}
+
+.search-input:focus {
+    outline: none;
+    /* Remove outline on focus */
+}
+
+.search-input:focus+.search-icon {
+    display: none;
+    /* Hide the search icon when input is focused */
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%) scaleX(-1);
+    font-size: 25px;
+    color: #67686d;
+    padding: 8px;
+}
