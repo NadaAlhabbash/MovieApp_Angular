@@ -4,11 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { ToggleTapsComponent } from './components/toggle-taps/toggle-taps.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SliderComponent,
+    ToggleTapsComponent
   ],
   imports: [
     BrowserModule,
