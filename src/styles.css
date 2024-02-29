@@ -38,6 +38,7 @@ body {
 
 .search-container {
     margin: 15px;
+    margin-bottom: 25px;
     margin-left: 0;
     position: relative;
     display: inline-block;
