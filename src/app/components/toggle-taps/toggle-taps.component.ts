@@ -7,4 +7,35 @@ import { Component } from '@angular/core';
 })
 export class ToggleTapsComponent {
 
-}
+  activeTab: string = 'nowPlaying'; // Initialize the active tab
+  nowPlayingPhotos: any[] = [
+    { url: 'https://example.com/photo1.jpg' }, // Example URL
+    { url: 'https://example.com/photo2.jpg' }, // Example URL
+    { url: 'https://example.com/photo2.jpg' }, // Example URL
+    { url: 'https://example.com/photo2.jpg' }, // Example URL
+    { url: 'https://example.com/photo2.jpg' }, // Example URL
+    { url: 'https://example.com/photo2.jpg' }, // Example URL
+    { url: 'https://example.com/photo2.jpg' }, // Example URL
+    // Add more photo objects with URLs as needed
+  ];
+
+  constructor() { }
+
+  onNavItemClicked(itemName: string): void {
+    console.log('Navigated to:', itemName);
+    this.activeTab = itemName; 
+    // //Fetch movie photos based on the selected tab
+    // if (itemName === 'nowPlaying') {
+    //     // Simulate fetching now playing movie photos from a service or API
+    //     this.nowPlayingPhotos = [
+    //         { url: 'path/to/now-playing-photo-1.jpg' },
+    //         { url: 'path/to/now-playing-photo-2.jpg' },
+    //         // THE FETCHED PHOTOS
+    //     ];
+    // }
+    // Add conditions to fetch photos for other tabs (upcoming, top rated, popular) if necessary
+  }
+
+  }
+
+

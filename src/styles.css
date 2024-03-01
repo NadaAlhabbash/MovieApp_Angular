@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     outline: 0;
-    transition: all 0.5s ease;
     color: #ffffff;
 }
 
@@ -74,3 +73,4 @@ body {
     color: #67686d;
     padding: 8px;
 }
+

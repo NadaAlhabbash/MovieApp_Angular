@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-item {
+    
+    padding: 8px;
+    cursor: pointer;
+}
+
+.active {
+    border-bottom: solid #3A3F47;
+    border-bottom-width: 5px;
+}
+
+.nav-item:hover {
+    border-bottom: solid #3A3F47;
+    border-bottom-width: 5px;
+}
+
+.tab-content {
+    margin-top: 25px;
+}
+
+.movie-photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Set three columns with equal width */
+    gap: 10px; /* Gap between grid items */
+}
+
+.movie-photos img {
+    max-width: 100%; /* Ensure photos fit within their container */
+    height: 150px; /* Specify the height of the image */
+    border-radius: 5px; /* Add rounded corners to photos */
+    background-color: aqua;
+}
