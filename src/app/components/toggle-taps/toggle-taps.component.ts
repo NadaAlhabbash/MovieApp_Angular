@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class ToggleTapsComponent {
 
+  constructor() { }
+
+  onNavItemClicked(itemName: string): void {
+    console.log('Navigated to:', itemName);
+    // Add your navigation logic here
+  }
+
 }
