@@ -1,0 +1,17 @@
+<footer class="footer">
+    <div class="footer-icons">
+        <div class="footer-icon" (click)="onIconClicked('home')" [ngClass]="{ 'active': activeIcon === 'home' }">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="footer-icon" (click)="onIconClicked('search')" [ngClass]="{ 'active': activeIcon === 'search' }">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+        </div>
+        <div class="footer-icon" (click)="onIconClicked('watchList')"
+            [ngClass]="{ 'active': activeIcon === 'watchList' }">
+            <i class="fa-regular fa-bookmark"></i>
+            <span>Watch list</span>
+        </div>
+    </div>
+</footer>

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     outline: 0;
     color: #ffffff;
+    font-weight: 100;
 }
 
 body {
@@ -24,6 +25,11 @@ body {
     background: #242a32;
     padding: 30px;
     padding-top: 45px;
+    /* overflow: hidden; */
+}
+
+::-webkit-scrollbar {
+    display: none; /* Hide the swipe line on the side */
 }
 
 @media only screen and (max-width: 500px) {

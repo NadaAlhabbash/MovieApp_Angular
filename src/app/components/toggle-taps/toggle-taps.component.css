@@ -1,10 +1,10 @@
 .navbar {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 25px;
 }
 
 .nav-item {
-    
     padding: 8px;
     cursor: pointer;
 }
@@ -20,18 +20,21 @@
 }
 
 .tab-content {
-    margin-top: 25px;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 260px;
 }
 
 .movie-photos {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Set three columns with equal width */
-    gap: 10px; /* Gap between grid items */
+    gap: 3px; /* Gap between grid items */    
 }
 
 .movie-photos img {
-    max-width: 100%; /* Ensure photos fit within their container */
-    height: 150px; /* Specify the height of the image */
-    border-radius: 5px; /* Add rounded corners to photos */
-    background-color: aqua;
+    width: 110px;
+    max-width: 100%; /*Ensure photos fit within their container*/
+    height: 146px; /* Specify the height of the image */
+    border-radius: 15px; /* Add rounded corners to photos */
+    margin-bottom: 15px;
+    cursor: pointer;
 }

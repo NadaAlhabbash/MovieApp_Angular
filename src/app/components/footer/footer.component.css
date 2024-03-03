@@ -1,0 +1,42 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #242a32;
+    padding: 17px;
+    text-align: center;
+    border-top: 1px solid #0296e5;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-between;
+    /* Icons will be spaced evenly */
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+.footer-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.footer-icon i {
+    cursor: pointer;
+    padding-bottom: 8px;
+    color: #67686D;
+}
+
+.footer-icon span {
+    font-size: 12px;
+    color: #67686D;
+    cursor: pointer;
+}
+
+.active span,
+.active i {
+    color: #0296e5;
+}
