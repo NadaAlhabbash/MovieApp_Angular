@@ -1,11 +1,12 @@
 .navbar {
+    position: relative;
     display: flex;
     justify-content: space-around;
     margin-bottom: 25px;
 }
 
 .nav-item {
-    padding: 8px;
+    padding-bottom: 8px;
     cursor: pointer;
 }
 
@@ -20,21 +21,30 @@
 }
 
 .tab-content {
-    overflow-y: auto; /* Enable vertical scrolling */
+    position: fixed;
+    overflow: auto;
     max-height: 260px;
+    /* Limit the maximum height of the tab content area */
 }
 
 .movie-photos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Set three columns with equal width */
-    gap: 3px; /* Gap between grid items */    
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    /* Grid with minimum item width of 100px */
+    gap: 10px;
+    /* Gap between grid items */
+}
+
+@media only screen and (max-width: 450px) {
+    .tab-content{
+        height: 200px;
+    }
 }
 
 .movie-photos img {
-    width: 110px;
-    max-width: 100%; /*Ensure photos fit within their container*/
-    height: 146px; /* Specify the height of the image */
-    border-radius: 15px; /* Add rounded corners to photos */
-    margin-bottom: 15px;
-    cursor: pointer;
+    width: 100%;
+    /* Ensure images take up the full width of their grid cell */
+    height: auto;
+    /* Allow the height to adjust according to the aspect ratio of the images */
+    border-radius: 15px;
 }
