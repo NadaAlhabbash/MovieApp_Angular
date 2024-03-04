@@ -11,6 +11,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #1e1e1e;
     user-select: none;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
@@ -23,16 +25,16 @@ body {
     height: 90vh;
     max-height: 850px;
     background: #242a32;
-    padding: 30px;
+    padding: 20px;
     padding-top: 45px;
-    /* overflow: hidden; */
+    /* overflow: auto; */
 }
 
 ::-webkit-scrollbar {
     display: none; /* Hide the swipe line on the side */
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 450px) {
     .container {
         width: 100%;
         max-width: none;
