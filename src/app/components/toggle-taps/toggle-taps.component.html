@@ -1,52 +1,47 @@
-<div class="navbar">
-    <div class="nav-item"
-     (click)="onNavItemClicked('nowPlaying')" 
-     [ngClass]="{ 'active': activeTab === 'nowPlaying' }">
-     Now Playing
-    </div>
-    <div class="nav-item" 
-    (click)="onNavItemClicked('upcoming')" 
-    [ngClass]="{ 'active': activeTab === 'upcoming' }">
-    Upcoming
-    </div>
-    <div class="nav-item" 
-    (click)="onNavItemClicked('topRated')" 
-    [ngClass]="{ 'active': activeTab === 'topRated' }">
-    Top rated
-    </div>
-    <div class="nav-item" 
-    (click)="onNavItemClicked('popular')" 
-    [ngClass]="{ 'active': activeTab === 'popular' }">
-    Popular
-    </div>
-</div>
+<div class="img-container">
 
-<div class="tab-content">
+    <div class="navbar">
+        <div class="nav-item" (click)="onNavItemClicked('nowPlaying')" [ngClass]="{ 'active': activeTab === 'nowPlaying' }">
+            Now Playing
+        </div>
+        <div class="nav-item" (click)="onNavItemClicked('upcoming')" [ngClass]="{ 'active': activeTab === 'upcoming' }">
+            Upcoming
+        </div>
+        <div class="nav-item" (click)="onNavItemClicked('topRated')" [ngClass]="{ 'active': activeTab === 'topRated' }">
+            Top rated
+        </div>
+        <div class="nav-item" (click)="onNavItemClicked('popular')" [ngClass]="{ 'active': activeTab === 'popular' }">
+            Popular
+        </div>
+    </div>
 
-    <!-- Different content for each tab -->
-    <div *ngIf="activeTab === 'nowPlaying'">
-        <div class="movie-photos">
-            <!-- Loop through movie photos and display them -->
-            <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+    <div class="tab-content">
+        <!-- Different content for each tab -->
+        <div *ngIf="activeTab === 'nowPlaying'">
+            <div class="movie-photos">
+                <!-- Loop through movie photos and display them -->
+                <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+            </div>
         </div>
-    </div>
-    <div *ngIf="activeTab === 'upcoming'">
-        <div class="movie-photos">
-            <!-- Loop through movie photos and display them -->
-            <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+        <div *ngIf="activeTab === 'upcoming'">
+            <div class="movie-photos">
+                <!-- Loop through movie photos and display them -->
+                <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+            </div>
         </div>
-    </div>
-    <div *ngIf="activeTab === 'topRated'">
-        <div class="movie-photos">
-            <!-- Loop through movie photos and display them -->
-            <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+        <div *ngIf="activeTab === 'topRated'">
+            <div class="movie-photos">
+                <!-- Loop through movie photos and display them -->
+                <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+            </div>
         </div>
-    </div>
-    <div *ngIf="activeTab === 'popular'">
-        <div class="movie-photos">
-            <!-- Loop through movie photos and display them -->
-            <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+        <div *ngIf="activeTab === 'popular'">
+            <div class="movie-photos">
+                <!-- Loop through movie photos and display them -->
+                <img *ngFor="let photo of nowPlayingPhotos" [src]="photo.url" alt="Movie Photo">
+            </div>
         </div>
+    
     </div>
 
 </div>
