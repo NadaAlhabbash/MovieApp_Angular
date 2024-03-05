@@ -16,19 +16,18 @@ body {
 }
 
 .container {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 425px;
-    height: 90vh;
+    width: 425px;
     max-height: 850px;
+    height: 100%;
     background: #242a32;
-    padding: 20px;
-    padding-top: 45px;
-    /* overflow: auto; */
+    padding: 15px;
+    padding-top: 3.5vw;
 }
+
 
 ::-webkit-scrollbar {
     display: none; /* Hide the swipe line on the side */
@@ -37,9 +36,9 @@ body {
 @media only screen and (max-width: 450px) {
     .container {
         width: 100%;
-        max-width: none;
-        height: 100%;
-        max-height: none;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100vh;
     }
 }
 

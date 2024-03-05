@@ -1,4 +1,4 @@
-<div class="slider-wrapper">
+<!-- <div class="slider-wrapper">
     <div class="slider-item">
         <span>
             <h1>1</h1>
@@ -29,4 +29,24 @@
         </span>
         ITEM 05
     </div>
+</div> -->
+
+<!-- <div class="slider-container" #slider (mousedown)="onDragStart($event)" (touchstart)="onDragStart($event)">
+    <div class="slider-track" #track>
+        <div class="slider-item" *ngFor="let slide of sliderPhotos; let i = index">
+            <img [src]="slide.imageUrl" alt="Slide">
+            <div class="slide-label">{{ i + 1 }}</div>
+        </div>
+    </div>
+</div> -->
+
+<div class="slider-wrapper">
+    <div class="slider-item" *ngFor="let slide of sliderPhotos; let i = index">
+        <span>
+            <h1>{{ i + 1 }}</h1>
+        </span>
+        <img [src]="slide.url" alt="Slide">
+    </div>
 </div>
+
+

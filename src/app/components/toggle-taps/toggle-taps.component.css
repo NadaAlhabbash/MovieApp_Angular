@@ -1,13 +1,26 @@
-.navbar {
+.img-container {
     position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 390px;
+    display: flex;
+    flex-direction: column;    
+}
+
+.navbar {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    left: 0;
+    right: 0;
 }
 
 .nav-item {
-    padding-bottom: 8px;
+    padding: 2%;
     cursor: pointer;
+    white-space: nowrap;
+    /* Set text color to white */
 }
 
 .active {
@@ -15,36 +28,37 @@
     border-bottom-width: 5px;
 }
 
-.nav-item:hover {
-    border-bottom: solid #3A3F47;
-    border-bottom-width: 5px;
-}
-
 .tab-content {
-    position: fixed;
-    overflow: auto;
-    max-height: 260px;
-    /* Limit the maximum height of the tab content area */
+    position: inherit;
+    flex: 1;
+    height: auto;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    padding: 0 10px;
+    /* Add padding to the content */
 }
 
 .movie-photos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    /* Grid with minimum item width of 100px */
+    grid-template-columns: repeat(3, 1fr);
+    /* Responsive grid */
     gap: 10px;
-    /* Gap between grid items */
-}
-
-@media only screen and (max-width: 450px) {
-    .tab-content{
-        height: 200px;
-    }
+    margin-bottom: 100px;
 }
 
 .movie-photos img {
-    width: 100%;
-    /* Ensure images take up the full width of their grid cell */
+    max-width: 100%;
+    /* Ensure images don't exceed their container */
     height: auto;
-    /* Allow the height to adjust according to the aspect ratio of the images */
-    border-radius: 15px;
+    /* Allow the height to adjust based on aspect ratio */
+    border-radius: 10px;
+    /* Add border radius to images */
+}
+
+@media only screen and (height: 800px) {
+    .img-container {
+        /* background-color: antiquewhite; */
+        height: 50vh;
+        bottom: 0;
+    }
 }
