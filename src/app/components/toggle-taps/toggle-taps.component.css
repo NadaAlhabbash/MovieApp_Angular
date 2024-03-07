@@ -2,8 +2,9 @@
     position: relative;
     width: 100%;
     max-width: 100%;
-    height: 100%;
-    max-height: 390px;
+    height: 400px;
+    max-height: 30vh;
+    min-height: 45%;
     display: flex;
     flex-direction: column;    
 }
@@ -12,8 +13,6 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
-    left: 0;
-    right: 0;
 }
 
 .nav-item {
@@ -48,17 +47,24 @@
 
 .movie-photos img {
     max-width: 100%;
-    /* Ensure images don't exceed their container */
     height: auto;
-    /* Allow the height to adjust based on aspect ratio */
     border-radius: 10px;
-    /* Add border radius to images */
+    cursor: pointer;
 }
 
-@media only screen and (height: 800px) {
+@media only screen and (min-height: 800px) {
     .img-container {
         /* background-color: antiquewhite; */
-        height: 50vh;
+        height: 46vh;
         bottom: 0;
+        max-height: auto;
+
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .navbar {
+            /* background-color: antiquewhite; */
+        font-size: 70%;
     }
 }

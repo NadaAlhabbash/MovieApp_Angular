@@ -1,1 +1,15 @@
 
+@media only screen and (max-width: 330px) {
+    h2 {
+        font-size: 110%;
+    }
+
+    .search-container {
+        max-width: 300px; /* Adjust maximum width for smaller screens */
+        height: 6%;
+    }
+
+    .search-input {
+        max-width: 90%; /* Adjust maximum width for smaller screens */
+    }
+}

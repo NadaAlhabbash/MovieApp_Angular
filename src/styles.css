@@ -25,7 +25,7 @@ body {
     height: 100%;
     background: #242a32;
     padding: 15px;
-    padding-top: 3.5vw;
+    padding-top: 3vw;
 }
 
 
@@ -57,7 +57,7 @@ body {
     padding: 15px;
     border: none;
     font-size: 18px;
-    width: 200px;
+    width: 360px;
     background-color: transparent;
 }
 
@@ -81,3 +81,19 @@ body {
     padding: 8px;
 }
 
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: last baseline;
+    gap: 35%;
+    margin-top: 0;
+    padding: 25px;
+}
+
+.header> :first-child {
+    cursor: pointer;
+}
+
+.header>i:hover {
+    color: #ffffffa8;
+}
