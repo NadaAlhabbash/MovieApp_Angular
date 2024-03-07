@@ -43,3 +43,11 @@
 .active i {
     color: #0296e5;
 }
+
+@media only screen and (max-width: 330px) {
+
+    .footer-icons {
+        font-size: 80%;
+    }
+
+}

@@ -9,6 +9,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ToggleTapsComponent } from './components/toggle-taps/toggle-taps.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
+import { DetailsComponent } from './components/details/details.component';
 
 
 
@@ -19,7 +20,8 @@ import { SearchComponent } from './components/search/search.component';
     SliderComponent,
     ToggleTapsComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

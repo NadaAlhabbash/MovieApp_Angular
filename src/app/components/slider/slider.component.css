@@ -49,3 +49,15 @@
         1px 1px 0 #0296e5;
     
 }
+
+@media only screen and (max-width: 330px) {
+    .slider-item {
+        width: 100px;
+        height: 150px;
+        margin-right: 10%;
+    }
+
+    .slider-wrapper span h1 {
+        font-size: 470%;
+    }
+}
