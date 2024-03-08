@@ -1,0 +1,141 @@
+.movie-detail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 350px;
+    max-height: 100%;
+}
+
+.poster {
+    position: relative;
+    width: 108%;
+}
+
+.poster img {
+    width: 100%;
+    height: auto;
+}
+
+.poster .fa-star {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #FF8700;
+    padding: 6px;
+    margin: 1px;
+    border-radius: 15px;
+    backdrop-filter: blur(25px);
+    cursor: pointer;
+}
+
+.poster span {
+    font-size: 10px;
+}
+
+.movie-photo {
+    position: absolute;
+    top: 45%;
+    left: 1%;
+    z-index: 1;
+}
+
+.movie-photo img {
+    width: 95px;
+    /* Adjust as needed */
+    height: 130px;
+    border-radius: 15px;
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    width: 100%;
+    margin-left: 150px;
+}
+
+.details h2 {
+    margin-left: 35px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    /* For modern browsers */
+    width: 80%;
+}
+
+.movie-span {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    column-gap: 8px;
+    margin-top: 340px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.movie-span p, i {
+    color: #92929D;
+}
+
+.navbar {
+    margin-top: 25px;
+    justify-content: left;
+    gap: 25px;
+}
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    overflow-y: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    height: 9rem;
+    /* text-overflow: ellipsis; */
+}
+
+.about-container p {
+    text-align: left;
+    line-height: 1.55;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.about-container button {
+    background: none;
+    border: none;
+    color: #92929D;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.active {
+    border-bottom: solid #3A3F47;
+    border-bottom-width: 5px;
+}
+
+/* Media queries for responsive layout */
+
+@media only screen and (max-width: 768px) {
+    .details h2 {
+        font-size: 30px;
+    }
+
+    .movie-span {
+        font-size: 10px;
+        /* margin-top: 300px; */
+        /* letter-spacing: 2px; */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .details h2 {
+        font-size: 25px;
+    }
+
+    .movie-span {
+        margin-top: 320px;
+    }
+}
