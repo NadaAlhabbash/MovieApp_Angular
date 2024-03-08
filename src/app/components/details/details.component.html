@@ -4,4 +4,60 @@
         <h3>Detail</h3>
         <i [class.fa-regular]="!solid" [class.fa-solid]="solid" class="fa-bookmark" (click)="toggleSolid()"></i>
     </div>
+
+    <div class="movie-detail">
+        <div class="poster">
+            <img src="../../../assets/images/poster.png" alt="Movie Poster">
+            <i class="fa-regular fa-star"><span> 9.5</span></i>
+        </div>
+        <div class="movie-photo">
+            <img src="../../../assets/images/Rectangle 4.png" alt="Small Image" alt="Movie Photo">
+        </div>
+        <div class="details">
+            <h2>Movie Name</h2>
+        </div>
+
+        <div class="movie-span">
+            <i class="fa-regular fa-calendar"></i>
+            <p>2021</p>
+            <br>
+            <p>|</p>
+            <br>
+            <i class="fa-regular fa-clock"></i>
+            <p>148 Minutes</p>
+            <br>
+            <p>|</p>
+            <br>
+            <i class="fa-solid fa-ticket-simple"></i>
+            <p>Action</p>
+        </div>        
+    </div>
+
+    <div class="tab-container">
+        <div class="navbar">
+            <div class="nav-item active" (click)="onNavItemClicked('aboutMovie')" [ngClass]="{ 'active': activeTab === 'aboutMovie'}">
+                About Movie
+            </div>
+            <div class="nav-item" (click)="onNavItemClicked('reviews')" [ngClass]="{ 'active': activeTab === 'reviews'}">
+                Reviews
+            </div>
+            <div class="nav-item" (click)="onNavItemClicked('cast')" [ngClass]="{ 'active': activeTab === 'cast'}">
+                Cast
+            </div>
+        </div>
+        <div class="about-container" *ngIf="activeTab === 'aboutMovie'">
+            <p>{{ contentToShow }}</p>
+            <button *ngIf="showReadMoreButton" (click)="toggleContent()">
+                Read More <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+
+        <div class="reviews-container" *ngIf="activeTab === 'reviews'">
+
+            
+
+        </div>        
+
+        </div>
+    
 </div>

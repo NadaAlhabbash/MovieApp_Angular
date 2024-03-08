@@ -84,16 +84,30 @@ body {
 .header {
     display: flex;
     justify-content: space-around;
-    align-items: last baseline;
+    align-items:last baseline;
     gap: 35%;
     margin-top: 0;
     padding: 25px;
 }
 
-.header> :first-child {
+.header > :first-child {
     cursor: pointer;
 }
 
-.header>i:hover {
+.header > i:hover {
     color: #ffffffa8;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.nav-item {
+    padding: 2%;
+    cursor: pointer;
+    white-space: nowrap;
+    /* Set text color to white */
+}
+

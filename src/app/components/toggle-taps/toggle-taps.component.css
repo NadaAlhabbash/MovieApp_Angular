@@ -9,24 +9,6 @@
     flex-direction: column;    
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-}
-
-.nav-item {
-    padding: 2%;
-    cursor: pointer;
-    white-space: nowrap;
-    /* Set text color to white */
-}
-
-.active {
-    border-bottom: solid #3A3F47;
-    border-bottom-width: 5px;
-}
-
 .tab-content {
     position: inherit;
     flex: 1;
@@ -50,6 +32,11 @@
     height: auto;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.active {
+    border-bottom: solid #3A3F47;
+    border-bottom-width: 5px;
 }
 
 @media only screen and (min-height: 800px) {
