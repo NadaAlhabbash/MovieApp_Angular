@@ -11,6 +11,7 @@ export class DetailsComponent {
   contentToShow: string;
   showReadMoreButton: boolean = false;
   activeTab: string = 'aboutMovie';
+  showFullText: boolean = false;
 
   constructor() {
     // Initially, show the first 200 characters of the content
@@ -28,6 +29,7 @@ export class DetailsComponent {
   }
 
   toggleContent() {
+    this.showFullText = !this.showFullText;
     // Toggle between showing the truncated content and the full content
     if (this.contentToShow.length === 200) {
       this.contentToShow = this.content;

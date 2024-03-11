@@ -10,6 +10,7 @@ import { ToggleTapsComponent } from './components/toggle-taps/toggle-taps.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
+import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
 
 
 
@@ -21,7 +22,8 @@ import { DetailsComponent } from './components/details/details.component';
     ToggleTapsComponent,
     FooterComponent,
     SearchComponent,
-    DetailsComponent
+    DetailsComponent,
+    TruncateTextPipe
   ],
   imports: [
     BrowserModule,
