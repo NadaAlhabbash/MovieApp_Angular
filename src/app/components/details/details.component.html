@@ -45,16 +45,27 @@
                 Cast
             </div>
         </div>
-        <div class="about-container" *ngIf="activeTab === 'aboutMovie'">
-            <p>{{ contentToShow }}</p>
-            <button *ngIf="showReadMoreButton" (click)="toggleContent()">
-                Read More <i class="fas fa-chevron-down"></i>
+        <div class="about-container" *ngIf="activeTab === 'aboutMovie'" >
+            <p>{{ contentToShow| truncateText: 150 }}</p>
+            <button *ngIf="showReadMoreButton" (click)="toggleContent()" >
+                Read {{ showFullText  ? 'less' : 'more' }} <i [class.fa-chevron-down]="!showFullText" [class.fa-chevron-up]="showFullText" class="fa-solid"></i>
             </button>
         </div>
 
         <div class="reviews-container" *ngIf="activeTab === 'reviews'">
 
-            
+            <div class="card">
+                <div class="user-photo">
+                    <img src="../../../assets/images/Ellipse 1.png" alt="User Photo">
+                    <p>4.5</p>
+                </div>
+                <div class="review">
+                    <h4>Iqbal Shafiq Rozaan</h4>
+                    <p>From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for
+                    the United States government.</p>
+                </div>
+            </div>
+
 
         </div>        
 
