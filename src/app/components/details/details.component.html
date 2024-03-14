@@ -8,7 +8,7 @@
     <div class="movie-detail">
         <div class="poster">
             <img src="../../../assets/images/poster.png" alt="Movie Poster">
-            <i class="fa-regular fa-star"><span> 9.5</span></i>
+            <i class="fa-regular fa-star" (click)="toggleRating()"><span> 9.5</span></i>
         </div>
         <div class="movie-photo">
             <img src="../../../assets/images/Rectangle 4.png" alt="Small Image" alt="Movie Photo">
@@ -30,21 +30,28 @@
             <br>
             <i class="fa-solid fa-ticket-simple"></i>
             <p>Action</p>
-        </div>        
+        </div>
     </div>
 
     <div class="tab-container">
         <div class="navbar">
-            <div class="nav-item active" (click)="onNavItemClicked('aboutMovie')" [ngClass]="{ 'active': activeTab === 'aboutMovie'}">
+            <div class="nav-item active" (click)="onNavItemClicked('aboutMovie')"
+                [ngClass]="{ 'active': activeTab === 'aboutMovie'}">
                 About Movie
             </div>
-            <div class="nav-item" (click)="onNavItemClicked('reviews')" [ngClass]="{ 'active': activeTab === 'reviews'}">
+            <div class="nav-item" (click)="onNavItemClicked('reviews')"
+                [ngClass]="{ 'active': activeTab === 'reviews'}">
                 Reviews
             </div>
             <div class="nav-item" (click)="onNavItemClicked('cast')" [ngClass]="{ 'active': activeTab === 'cast'}">
                 Cast
             </div>
         </div>
+        <div class="about-container" *ngIf="activeTab === 'aboutMovie'">
+            <p>{{ contentToShow| truncateText: 150 }}</p>
+            <button *ngIf="showReadMoreButton" (click)="toggleContent()">
+                Read {{ showFullText ? 'less' : 'more' }} <i [class.fa-chevron-down]="!showFullText"
+                    [class.fa-chevron-up]="showFullText" class="fa-solid"></i>
         <div class="about-container" *ngIf="activeTab === 'aboutMovie'" >
             <p>{{ contentToShow| truncateText: 150 }}</p>
             <button *ngIf="showReadMoreButton" (click)="toggleContent()" >
@@ -61,14 +68,27 @@
                 </div>
                 <div class="review">
                     <h4>Iqbal Shafiq Rozaan</h4>
+                    <p>{{ review | truncateText:100 }}</p>
+                </div>
+            </div>
+        </div>
                     <p>From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for
                     the United States government.</p>
                 </div>
             </div>
 
 
-        </div>        
+        <div class="cast-container" *ngIf="activeTab === 'cast'">
+            <div class="cast-member" *ngFor="let member of cast">
+                <img class="actor-photo" [src]="member.photoUrl" alt="Actor Photo">
+                <p class="actor-name">{{ member.name }}</p>
+            </div>
+        </div>
+
+        <div class="rating-container" *ngIf="isRatingPage">
+        
+            
 
         </div>
-    
+
 </div>

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Movie } from '../../models/movie';
 
+
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  selector: 'app-watchlist',
+  templateUrl: './watchlist.component.html',
+  styleUrl: './watchlist.component.css'
 })
-export class SearchComponent {
+export class WatchlistComponent {
 
   // movies: Movie[] = [
   //   { 
@@ -44,4 +45,5 @@ export class SearchComponent {
     
   // ];
   
+
 }
