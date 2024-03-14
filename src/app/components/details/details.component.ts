@@ -12,6 +12,7 @@ export class DetailsComponent {
   showReadMoreButton: boolean = false;
   activeTab: string = 'aboutMovie';
   showFullText: boolean = false;
+
   review: string = `From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government.`
   cast = [
     { name: 'Actor 1', photoUrl: '../../../assets/images/Ellipse 1 (1).png' },

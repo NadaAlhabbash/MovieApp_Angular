@@ -12,5 +12,4 @@ export class TruncateTextPipe implements PipeTransform {
     return value;
   }
 
-
 }

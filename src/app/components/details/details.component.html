@@ -52,6 +52,10 @@
             <button *ngIf="showReadMoreButton" (click)="toggleContent()">
                 Read {{ showFullText ? 'less' : 'more' }} <i [class.fa-chevron-down]="!showFullText"
                     [class.fa-chevron-up]="showFullText" class="fa-solid"></i>
+        <div class="about-container" *ngIf="activeTab === 'aboutMovie'" >
+            <p>{{ contentToShow| truncateText: 150 }}</p>
+            <button *ngIf="showReadMoreButton" (click)="toggleContent()" >
+                Read {{ showFullText  ? 'less' : 'more' }} <i [class.fa-chevron-down]="!showFullText" [class.fa-chevron-up]="showFullText" class="fa-solid"></i>
             </button>
         </div>
 
@@ -68,6 +72,11 @@
                 </div>
             </div>
         </div>
+                    <p>From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for
+                    the United States government.</p>
+                </div>
+            </div>
+
 
         <div class="cast-container" *ngIf="activeTab === 'cast'">
             <div class="cast-member" *ngFor="let member of cast">

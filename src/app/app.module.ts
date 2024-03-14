@@ -13,6 +13,7 @@ import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
 import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+main
 
 
 
@@ -27,6 +28,7 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
     DetailsComponent,
     TruncateTextPipe,
     WatchlistComponent,
+    TruncateTextPipe
   ],
   imports: [
     BrowserModule,

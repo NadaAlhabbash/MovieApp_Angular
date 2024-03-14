@@ -1,5 +1,5 @@
 <div class="slider-wrapper">
-    <div class="slider-item" *ngFor="let slide of sliderPhotos; let i = index">
+    <div class="slider-item" *ngFor="let slide of sliderPhotos; let i = index" routerLink="/details">
         <span>
             <h1>{{ i + 1 }}</h1>
         </span>
