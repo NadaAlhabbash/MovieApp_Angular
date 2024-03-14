@@ -1,15 +1,15 @@
 <footer class="footer">
     <div class="footer-icons">
-        <div class="footer-icon" routerLinkActive="active" routerLink="/home">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
+        <div class="footer-icon" routerLinkActive="active">
+            <i class="fas fa-home" routerLink="/home"></i>
+            <span routerLink="/home">Home</span>
         </div>
         <div class="footer-icon" (click)="onIconClicked('search')" [ngClass]="{ 'active': activeIcon === 'search' }" routerLink="/search" routerLinkActive="active">
             <i class="fas fa-search"></i>
             <span>Search</span>
         </div>
-        <div class="footer-icon" (click)="onIconClicked('watchlist')" routerLinkActive="active" routerLink="/watchlist">
-            <i class="fa-regular fa-bookmark" ></i>
+        <div class="footer-icon" routerLinkActive="active">
+            <i class="fa-regular fa-bookmark"></i>
             <span>Watch list</span>
         </div>
     </div>
