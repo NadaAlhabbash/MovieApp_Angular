@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,8 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
 import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
-import { WatchlistComponent } from './components/watchlist/watchlist.component';
-main
 
 
 
@@ -26,14 +23,11 @@ main
     FooterComponent,
     SearchComponent,
     DetailsComponent,
-    TruncateTextPipe,
-    WatchlistComponent,
     TruncateTextPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
