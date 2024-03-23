@@ -29,6 +29,7 @@ import { MoviesService } from './services/movies.service';
     DetailsComponent,
     TruncateTextPipe,
     WatchlistComponent,
+    TruncateTextPipe
   ],
   imports: [
     BrowserModule,

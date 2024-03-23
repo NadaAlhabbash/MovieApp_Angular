@@ -19,13 +19,17 @@ export class DetailsComponent implements OnInit {
   // contentToShow: string;
   showReadMoreButton: boolean = false;
   activeTab: string = 'aboutMovie';
+
   // showFullText: boolean = false;
   // cast = [
     // { name: 'Actor 1', photoUrl: '../../../assets/images/Ellipse 1 (1).png' },
     // { name: 'Actor 2', photoUrl: '../../../assets/images/Ellipse 1 (1).png' },
     // { name: 'Actor 3', photoUrl: '../../../assets/images/Ellipse 1 (1).png' }
-    // Add more cast members as needed
-  // ];
+
+  showFullText: boolean = false;
+
+  review: string = `From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government.`
+  
   isRatingPage: boolean = false;
 
   constructor(

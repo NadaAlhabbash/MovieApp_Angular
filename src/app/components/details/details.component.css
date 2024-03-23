@@ -120,6 +120,8 @@ i {
     height: 17rem;
     overflow: auto;
     padding-bottom: 20%;
+    height: 18rem;
+    overflow: auto;
 }
 
 .card {
@@ -212,6 +214,7 @@ i {
 
 @media only screen and (max-height: 700px) {
     .about-container {
+        /* background-color: rgb(46, 28, 5); */
         height: 4.5rem;
         bottom: 0;
         overflow-y: auto;
@@ -223,6 +226,8 @@ i {
     }
 
     .reviews-container {
+     .reviews-container {
+        /* background-color: #3A3F49; */
         height: 7rem;
         padding-bottom: 15px;
     }
@@ -246,6 +251,13 @@ i {
 @media only screen and (max-width: 768px) and (max-height: 710px) {
     .details h2 {
         font-size: 25px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .details h2 {
+        font-size: 25px;
+        /* background-color: #FF8700; */
         width: 70%;
     }
 
@@ -258,6 +270,11 @@ i {
         padding-bottom: 35%;
     }
 
+        /* background-color: #1a305e; */
+        height: 20rem;
+        padding-bottom: 20%;
+    }
+    
 }
 
 @media only screen and (max-width: 350px) {
