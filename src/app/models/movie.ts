@@ -1,4 +1,5 @@
 export interface Movie {
+<<<<<<< HEAD
   adult?: boolean;
   backdrop_path?: string;
   belongs_to_collection?: any; // You can define a separate interface for collection if needed
@@ -47,4 +48,12 @@ interface SpokenLanguage {
   english_name: string;
   iso_639_1: string;
   name: string;
+=======
+  img: string;
+  title: string;
+  rating: number;
+  type: string;
+  year: number;
+  duration: string;
+>>>>>>> 0804336fa7674a0334a4378cc35271366ff21297
 }

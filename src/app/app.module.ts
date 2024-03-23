@@ -13,7 +13,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
 import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
-import { WatchlistComponent } from './components/watchlist/watchlist.component';
 import { MoviesService } from './services/movies.service';
 
 
@@ -27,8 +26,7 @@ import { MoviesService } from './services/movies.service';
     FooterComponent,
     SearchComponent,
     DetailsComponent,
-    TruncateTextPipe,
-    WatchlistComponent,
+    TruncateTextPipe
   ],
   imports: [
     BrowserModule,
