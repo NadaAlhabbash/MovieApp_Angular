@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
 import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
+import { MovieService } from './services/movie.service';
+
 
 
 
@@ -27,9 +32,14 @@ import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'environment', useValue: environment },
+    MovieService,
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
