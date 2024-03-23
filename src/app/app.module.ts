@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
 import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
+import { MoviesService } from './services/movies.service';
 
 
 
@@ -31,9 +33,13 @@ import { WatchlistComponent } from './components/watchlist/watchlist.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: 'environment', useValue: environment },
+    MoviesService,
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
