@@ -7,68 +7,82 @@
 
     <div class="movie-detail">
         <div class="poster">
-            <img src="../../../assets/images/poster.png" alt="Movie Poster">
-            <i class="fa-regular fa-star"><span> 9.5</span></i>
+            <img *ngIf="SelectedMovie?.backdrop_path"
+                [src]="movieService.getMoviePosterUrl(SelectedMovie.backdrop_path)" alt="{{ SelectedMovie.title }}">
+            <i class="fa-regular fa-star" (click)="toggleRating()"><span> 9.5</span></i>
         </div>
         <div class="movie-photo">
-            <img src="../../../assets/images/Rectangle 4.png" alt="Small Image" alt="Movie Photo">
+            <img *ngIf="SelectedMovie?.poster_path" [src]="movieService.getMoviePosterUrl(SelectedMovie.poster_path)"
+                alt="{{ SelectedMovie.title }}">
         </div>
         <div class="details">
-            <h2>Movie Name</h2>
+            <h2>{{ SelectedMovie?.title }}</h2>
         </div>
 
         <div class="movie-span">
             <i class="fa-regular fa-calendar"></i>
-            <p>2021</p>
+            <p>{{ getReleaseYear(SelectedMovie?.release_date)}}</p>
             <br>
             <p>|</p>
             <br>
             <i class="fa-regular fa-clock"></i>
-            <p>148 Minutes</p>
+            <p>{{ SelectedMovie?.runtime }} Minutes</p>
             <br>
             <p>|</p>
             <br>
             <i class="fa-solid fa-ticket-simple"></i>
-            <p>Action</p>
-        </div>        
+            <p>{{ SelectedMovie?.genres[0]?.name }}</p>
+        </div>
     </div>
 
     <div class="tab-container">
         <div class="navbar">
-            <div class="nav-item active" (click)="onNavItemClicked('aboutMovie')" [ngClass]="{ 'active': activeTab === 'aboutMovie'}">
+            <div class="nav-item active" (click)="onNavItemClicked('aboutMovie')"
+                [ngClass]="{ 'active': activeTab === 'aboutMovie'}">
                 About Movie
             </div>
-            <div class="nav-item" (click)="onNavItemClicked('reviews')" [ngClass]="{ 'active': activeTab === 'reviews'}">
+            <div class="nav-item" (click)="onNavItemClicked('reviews')"
+                [ngClass]="{ 'active': activeTab === 'reviews'}">
                 Reviews
             </div>
             <div class="nav-item" (click)="onNavItemClicked('cast')" [ngClass]="{ 'active': activeTab === 'cast'}">
                 Cast
             </div>
         </div>
-        <div class="about-container" *ngIf="activeTab === 'aboutMovie'" >
-            <p>{{ contentToShow| truncateText: 150 }}</p>
-            <button *ngIf="showReadMoreButton" (click)="toggleContent()" >
-                Read {{ showFullText  ? 'less' : 'more' }} <i [class.fa-chevron-down]="!showFullText" [class.fa-chevron-up]="showFullText" class="fa-solid"></i>
+        <div class="about-container" *ngIf="activeTab === 'aboutMovie'">
+            <p>{{ SelectedMovie?.overview }}</p>
+            <button *ngIf="showReadMoreButton" (click)="toggleContent()">
+                Read {{ showFullText ? 'less' : 'more' }} <i [class.fa-chevron-down]="!showFullText"
+                    [class.fa-chevron-up]="showFullText" class="fa-solid"></i>
             </button>
         </div>
 
         <div class="reviews-container" *ngIf="activeTab === 'reviews'">
 
-            <div class="card">
+            <div class="card" *ngFor="let review of reviews">
                 <div class="user-photo">
                     <img src="../../../assets/images/Ellipse 1.png" alt="User Photo">
-                    <p>4.5</p>
+                    <p> {{ review.author_details.rating }} </p>
                 </div>
                 <div class="review">
-                    <h4>Iqbal Shafiq Rozaan</h4>
-                    <p>From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for
-                    the United States government.</p>
+                    <h4> {{ review.author }} </h4>
+                    <p>{{ review.content | truncateText: 500 }}</p>
                 </div>
             </div>
+        </div>
+
+        <div class="cast-container" *ngIf="activeTab === 'cast'">
+            <div class="cast-member" *ngFor="let member of cast">
+                <img *ngIf="member?.profile_path" class="actor-photo" [src]="movieService.getMoviePosterUrl(member.profile_path)" alt=" {{ member.name }} ">
+                <p class="actor-name">{{ member.name }}</p>
+            </div>
+        </div>
+
+        <div class="rating-container" *ngIf="isRatingPage">
 
 
-        </div>        
 
         </div>
-    
+
+    </div>
 </div>

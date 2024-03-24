@@ -5,6 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Movie } from '../models/movie';
 import { Review } from '../models/review';
+import { CastMember } from '../models/cast';
 
 
 @Injectable({
@@ -117,6 +118,18 @@ export class MovieService {
       map(response => {
         // console.log(response);
         return response.results;
+      }),
+      catchError(this.handleError),
+    )
+  }
+
+  getMovieCast(movie_id): Observable<CastMember> {
+    const url= `${this.apiUrl}/movie/${movie_id}/credits`
+    return this.fetchData<CastMember>(url)
+    .pipe(
+      map(response => {
+        // console.log(response);
+        return response.cast;
       }),
       catchError(this.handleError),
     )
