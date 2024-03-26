@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service';
+import { MovieService } from '../../services/Movie/movie.service';
 import { Movie } from '../../models/movie';
+import { UtilService } from '../../services/utils/util.service';
+
 
 @Component({
   selector: 'app-toggle-taps',
@@ -14,6 +16,7 @@ export class ToggleTapsComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
+    private utilService: UtilService
     ) {}
 
   ngOnInit(): void {
@@ -77,6 +80,10 @@ export class ToggleTapsComponent implements OnInit {
       // console.log(this.nowPlayingMovies);
     }
     });
+  }
+
+  getImgUrl(release_date: string) {
+    return this.utilService.getMoviePosterUrl(release_date);
   }
 
   }

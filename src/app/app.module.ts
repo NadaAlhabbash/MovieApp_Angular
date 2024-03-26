@@ -14,7 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailsComponent } from './components/details/details.component';
 import { TruncateTextPipe } from './pipes/custom-pipe.pipe';
-import { MovieService } from './services/movie.service';
+import { MovieService } from './services/Movie/movie.service';
 import { WatchlistComponent } from './components/watchlist/watchlist.component';
 
 

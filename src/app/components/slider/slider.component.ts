@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service';
+import { MovieService } from '../../services/Movie/movie.service';
 import { Movie } from '../../models/movie';
+import { UtilService } from '../../services/utils/util.service';
 
 
 @Component({
@@ -9,9 +10,12 @@ import { Movie } from '../../models/movie';
   styleUrl: './slider.component.css'
 })
 export class SliderComponent implements OnInit {
-    topRated : Movie[] = [];
+    topRated : Movie[];
 
-  constructor( private movieService: MovieService ) {}
+  constructor( 
+    private movieService: MovieService,
+    private utilService: UtilService
+    ) {}
 
   ngOnInit(): void {
     this.top5Movies();
@@ -24,6 +28,10 @@ export class SliderComponent implements OnInit {
         // console.log(this.topRated);        
       }
     });
+  }
+
+  getImgUrl(release_date: string) {
+    return this.utilService.getMoviePosterUrl(release_date);
   }
 
 }

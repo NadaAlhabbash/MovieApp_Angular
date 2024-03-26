@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../../services/movie.service';
+import { MovieService } from '../../services/Movie/movie.service';
 import { Movie } from '../../models/movie';
 import { ActivatedRoute } from '@angular/router';
 import { Review } from '../../models/review';
 import { CastMember } from '../../models/cast';
+import { WatchlistService } from '../../services/Watchlist/watchlist.service';
+import { UtilService } from '../../services/utils/util.service';
 
 
 @Component({
@@ -32,7 +34,9 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private watchlistService: WatchlistService,
+    private utilService: UtilService
     ) {
     // this.movieId = this.SelectedMovie.id;
     // Initially, show the first 200 characters of the content
@@ -51,8 +55,11 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  toggleSolid() {
+  toggleSolid(movie: Movie) {
     this.solid = !this.solid;
+    if (this.solid && movie) {
+    this.watchlistService.addToWatchlist(movie);
+  }
   }
 
 
@@ -110,6 +117,10 @@ export class DetailsComponent implements OnInit {
     })
   }
 
+  getImgUrl(release_date: string) {
+    return this.utilService.getMoviePosterUrl(release_date);
+  }
+
   onNavItemClicked(itemName: string): void {
     // console.log('Navigated to:', itemName);
     this.activeTab = itemName; 
@@ -132,8 +143,7 @@ export class DetailsComponent implements OnInit {
   }
 
   getReleaseYear(releaseDate: string): number {
-    const date = new Date(releaseDate);
-    return date.getFullYear();
+    return this.utilService.getReleaseYear(releaseDate);
   }
 
 }

@@ -20,25 +20,25 @@
         <!-- Different content for each tab -->
         <div *ngIf="activeTab === 'nowPlaying'">
             <div class="movie-photos">
-                <img *ngFor="let movie of nowPlayingMovies" [src]="movieService.getMoviePosterUrl(movie.poster_path)"
+                <img *ngFor="let movie of nowPlayingMovies" [src]="getImgUrl(movie.poster_path)"
                     alt="{{ movie.title }}" [routerLink]="['/details', movie.id]">
             </div>
         </div>
         <div *ngIf="activeTab === 'upcoming'">
             <div class="movie-photos">
-                <img *ngFor="let movie of nowPlayingMovies" [src]="movieService.getMoviePosterUrl(movie.poster_path)"
+                <img *ngFor="let movie of nowPlayingMovies" [src]="getImgUrl(movie.poster_path)"
                     alt="{{ movie.title }}" [routerLink]="['/details', movie.id]">
             </div>
         </div>
         <div *ngIf="activeTab === 'topRated'">
             <div class="movie-photos">
-                <img *ngFor="let movie of nowPlayingMovies" [src]="movieService.getMoviePosterUrl(movie.poster_path)"
+                <img *ngFor="let movie of nowPlayingMovies" [src]="getImgUrl(movie.poster_path)"
                     alt="{{ movie.title }}" [routerLink]="['/details', movie.id]">
             </div>
         </div>
         <div *ngIf="activeTab === 'popular'">
             <div class="movie-photos">
-                <img *ngFor="let movie of nowPlayingMovies" [src]="movieService.getMoviePosterUrl(movie.poster_path)"
+                <img *ngFor="let movie of nowPlayingMovies" [src]="getImgUrl(movie.poster_path)"
                     alt="{{ movie.title }}" [routerLink]="['/details', movie.id]">
             </div>
         </div>

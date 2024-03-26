@@ -1,9 +1,9 @@
 <div class="slider-wrapper">
-    <div class="slider-item" *ngFor="let slide of topRated; let i = index" routerLink="/details">
+    <div class="slider-item" *ngFor="let slide of topRated; let i = index" [routerLink]="['/details', slide.id]">
         <span>
             <h1>{{ i + 1 }}</h1>
         </span>
-        <img [src]="movieService.getMoviePosterUrl(slide.poster_path)" alt="{{slide.title}}">
+        <img [src]="getImgUrl(slide.poster_path)" alt="{{slide.title}}">
     </div>
 </div>
 
