@@ -2,17 +2,17 @@
     <div class="header">
         <i class="fas fa-chevron-left" routerLink="/home"></i>
         <h3>Detail</h3>
-        <i [class.fa-regular]="!solid" [class.fa-solid]="solid" class="fa-bookmark" (click)="toggleSolid()"></i>
+        <i [class.fa-regular]="!solid" [class.fa-solid]="solid" class="fa-bookmark" (click)="toggleSolid(SelectedMovie)"></i>
     </div>
 
     <div class="movie-detail">
         <div class="poster">
             <img *ngIf="SelectedMovie?.backdrop_path"
-                [src]="movieService.getMoviePosterUrl(SelectedMovie.backdrop_path)" alt="{{ SelectedMovie.title }}">
+                [src]="getImgUrl(SelectedMovie.backdrop_path)" alt="{{ SelectedMovie.title }}">
             <i class="fa-regular fa-star" (click)="toggleRating()"><span> 9.5</span></i>
         </div>
         <div class="movie-photo">
-            <img *ngIf="SelectedMovie?.poster_path" [src]="movieService.getMoviePosterUrl(SelectedMovie.poster_path)"
+            <img *ngIf="SelectedMovie?.poster_path" [src]="getImgUrl(SelectedMovie.poster_path)"
                 alt="{{ SelectedMovie.title }}">
         </div>
         <div class="details">

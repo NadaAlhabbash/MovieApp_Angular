@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
-import { Movie } from '../models/movie';
-import { Review } from '../models/review';
-import { CastMember } from '../models/cast';
+import { environment } from '../../../environments/environment';
+import { Movie } from '../../models/movie';
+import { Review } from '../../models/review';
+import { CastMember } from '../../models/cast';
 
 
 @Injectable({
@@ -134,8 +134,5 @@ export class MovieService {
       catchError(this.handleError),
     )
   }
-
-  getMoviePosterUrl(posterPath: string): string {
-    return `https://image.tmdb.org/t/p/w500${posterPath}`;
-  }
 }
+
