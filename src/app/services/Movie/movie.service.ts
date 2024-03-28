@@ -134,5 +134,15 @@ export class MovieService {
       catchError(this.handleError),
     )
   }
+
+  searchMovies(query: string): Observable<Movie[]> {
+    const url = `${this.apiUrl}/search/movie`;
+    const params = { query };
+    return this.fetchData<Movie[]>(url, params)
+      .pipe(
+        map(response => response.results),
+        catchError(this.handleError),
+      );
+  }
 }
 

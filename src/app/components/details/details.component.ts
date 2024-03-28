@@ -38,6 +38,7 @@ export class DetailsComponent implements OnInit {
     private watchlistService: WatchlistService,
     private utilService: UtilService
     ) {
+      
     // this.movieId = this.SelectedMovie.id;
     // Initially, show the first 200 characters of the content
     // this.contentToShow = this.content.slice(0, 200);
@@ -52,35 +53,28 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.movieId = +params['id']; // Convert to number
       this.getMovieDetails(this.movieId);
+
+      const isInMemoryWatchlist = this.watchlistService.getWatchlist().some(watchedMovie => watchedMovie.id === this.movieId);
+    const localStorageWatchlist = JSON.parse(localStorage.getItem('watchlist') || '[]');
+    const isInLocalStorageWatchlist = localStorageWatchlist.some(watchedMovie => watchedMovie.id === this.movieId);
+
+    // Set the solid property based on whether the movie is in the watchlist
+    this.solid = isInMemoryWatchlist || isInLocalStorageWatchlist;
+      
     });
   }
 
   toggleSolid(movie: Movie) {
+    const isInWatchlist = this.watchlistService.isInWatchlist(movie);
     this.solid = !this.solid;
-    if (this.solid && movie) {
-    this.watchlistService.addToWatchlist(movie);
+
+    if (!isInWatchlist && this.solid) {
+      this.watchlistService.addToWatchlist(movie);
+    } else if (isInWatchlist && !this.solid) {
+      this.watchlistService.removeFromWatchlist(movie);
+    }
   }
-  }
 
-
-//   getMovieDetails(movieId: number) {
-//   this.moviesService.getMovieDetails(movieId).subscribe({
-//     next: (movie) => {      
-//       this.SelectedMovie = movie;
-//       console.log(this.SelectedMovie);
-//     },
-//   });
-// }
-
-  // toggleContent() {
-  //   this.showFullText = !this.showFullText;
-  //   // Toggle between showing the truncated content and the full content
-  //   if (this.contentToShow.length === 200) {
-  //     this.contentToShow = this.content;
-  //   } else {
-  //     this.contentToShow = this.content.slice(0, 200);
-  //   }
-  // }
 
   toggleRating() {
     this.isRatingPage = !this.isRatingPage;
@@ -92,8 +86,6 @@ export class DetailsComponent implements OnInit {
       next: (movie) => {
         this.SelectedMovie = movie;
         // console.log(this.SelectedMovie);
-        const year = this.getReleaseYear(movie.release_date);
-        // console.log('Release year:', year);
       }
     })
   }

@@ -1,4 +1,4 @@
-<!-- <div class="container">
+<div class="container">
 
     <div class="header">
         <i class="fas fa-chevron-left" routerLink="/home"></i>
@@ -7,18 +7,18 @@
     </div>
     
     <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search">
-        <i class="fas fa-search search-icon "></i>
+        <input type="text" class="search-input" placeholder="Search" [(ngModel)]="query" (input)="search()">
+        <i class="fas fa-search search-icon"></i>
     </div>
     
-    <div class="no-results" *ngIf="movies.length < 0">
+    <!-- <div class="no-results" *ngIf="movies.length < 0">
         <img src="../../../assets/images/no-results.png" alt="">
         <h2>We Are Sorry, We Can <br> Not Find The Movie :&lpar;</h2>
         <p>Find your movie by Type title, <br> categories, years, etc</p>
-    </div>
-
-    <div class="search-body" *ngIf="movies.length > 0">
-        <div class="movie-card" *ngFor="let movie of movies">
+    </div> -->
+<!-- *ngIf="movies.length > 0" -->
+    <div class="search-body">
+        <div class="movie-card" *ngFor="let movie of searchResults">
             <img [src]="movie.img"
                 alt="{{ movie.title }}">
         
@@ -68,4 +68,4 @@
     <app-footer></app-footer>
 </div>
 
- -->
+
