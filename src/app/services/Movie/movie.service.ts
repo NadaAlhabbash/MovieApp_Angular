@@ -182,9 +182,16 @@ export class MovieService {
       }),
       catchError(this.handleError),
     )
-}
+  }
 
-  
+  getMovieDuration(movieId: number): Observable<number> {
+    return this.fetchData(`${this.apiUrl}movie/${movieId}`)
+      .pipe(
+        map((data: any) => {
+          return data.runtime;
+        })
+      );
+  }
 
   // getGenres(): Observable<any> {
   //   const url = `${this.apiUrl}/genre/movie/list`;

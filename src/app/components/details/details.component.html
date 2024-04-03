@@ -7,13 +7,12 @@
 
     <div class="movie-detail">
         <div class="poster">
-            <img *ngIf="SelectedMovie?.backdrop_path"
-                [src]="getImgUrl(SelectedMovie.backdrop_path)" alt="{{ SelectedMovie.title }}">
+            <img [src]="getImgUrl(SelectedMovie?.backdrop_path)" alt="{{ SelectedMovie?.title }}">
             <i class="fa-regular fa-star" (click)="toggleRating()"><span> 9.5</span></i>
         </div>
         <div class="movie-photo">
-            <img *ngIf="SelectedMovie?.poster_path" [src]="getImgUrl(SelectedMovie.poster_path)"
-                alt="{{ SelectedMovie.title }}">
+            <img [src]="getImgUrl(SelectedMovie?.poster_path)"
+                alt="{{ SelectedMovie?.title }}">
         </div>
         <div class="details">
             <h2>{{ SelectedMovie?.title }}</h2>
@@ -73,10 +72,11 @@
 
         <div class="cast-container" *ngIf="activeTab === 'cast'">
             <div class="cast-member" *ngFor="let member of cast">
-                <img *ngIf="member?.profile_path" class="actor-photo" [src]="movieService.getMoviePosterUrl(member.profile_path)" alt=" {{ member.name }} ">
+                <img class="actor-photo" [src]="getImgUrl(member.profile_path)" alt="{{ member.name }}">
                 <p class="actor-name">{{ member.name }}</p>
             </div>
         </div>
+
 
         <div class="rating-container" *ngIf="isRatingPage">
 
