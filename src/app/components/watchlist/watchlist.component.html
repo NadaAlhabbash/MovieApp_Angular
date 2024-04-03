@@ -12,7 +12,7 @@
     </div>
 
     <div class="search-body" *ngIf="watchlist.length > 0">
-        <div class="movie-card" *ngFor="let movie of watchlist">
+        <div class="movie-card" *ngFor="let movie of watchlist" [routerLink]="['/details', movie.id]">
             <img [src]="getImgUrl(movie.poster_path)"
                 alt="{{ movie.title }}">
         

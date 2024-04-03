@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { Movie } from '../../models/movie';
+import { Movie, Genre } from '../../models/movie';
 import { Review } from '../../models/review';
 import { CastMember } from '../../models/cast';
 
@@ -54,6 +54,30 @@ export class MovieService {
     console.error('An error occurred:', error);
     return of<T>([] as T);
   }
+
+  // searchMovies(query: string): Observable<Movie[]> {
+  //   const url = `${this.apiUrl}/search/movie`;
+  //   const params = { query };
+  //   return this.fetchData<Movie[]>(url, params)
+  //     .pipe(
+  //       map(response => {
+  //         console.log(response.results);
+  //         return response.results;
+  //       }),
+  //       catchError(this.handleError),
+  //     );
+  // }
+
+  // getGeners(): Observable<any> {
+  //   const url = `{this.apiUrl}/genre/movie/list`
+  //   return this.fetchData<any>(url)
+  //   .pipe(
+  //     map(response => {
+  //       console.log(response);
+  //       return response;  
+  //     })
+  //   )
+  // }
 
   getNowPlayingMovies(): Observable<Movie[]> {
     const url = `${this.apiUrl}/movie/now_playing`;    
@@ -134,5 +158,40 @@ export class MovieService {
       catchError(this.handleError),
     )
   }
+
+  searchMovies(query: string): Observable<Movie[]> {
+    const url = `${this.apiUrl}/search/movie`;
+    const params = { query };
+    return this.fetchData<Movie[]>(url, params)
+      .pipe(
+        map(response => {
+          console.log(response.results);
+          return response.results;
+        }),
+        catchError(this.handleError),
+      );
+  }
+
+  fetchGenres(): Observable<Genre[]> {
+    const url = `${this.apiUrl}/genre/movie/list`;
+    return this.fetchData<Genre[]>(url)
+    .pipe(
+      map(response => {
+        console.log(response);
+        return response.genres;        
+      }),
+      catchError(this.handleError),
+    )
+}
+
+  
+
+  // getGenres(): Observable<any> {
+  //   const url = `${this.apiUrl}/genre/movie/list`;
+  //   const params = { api_key: this.apiKey };
+  //   return this.http.get<any>(url, { params }).pipe(
+  //     catchError(this.handleError)
+  //   );
+  // }
 }
 
