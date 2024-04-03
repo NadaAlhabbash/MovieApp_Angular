@@ -1,36 +1,62 @@
-import { Component } from '@angular/core';
-import { Movie } from '../../models/movie';
+import { Component, OnInit } from '@angular/core';
+import { Movie, Genre } from '../../models/movie';
 import { MovieService } from '../../services/Movie/movie.service';
+import { UtilService } from '../../services/utils/util.service';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
   query: string = '';
   searchResults: Movie[] = [];
   isLoading: boolean = false;
+  genres: Genre[] = [];
 
-  constructor(private movieService: MovieService) { }
+  constructor(
+    private movieService: MovieService,
+    private utilService: UtilService
+    ) { }
+
+  ngOnInit(): void {
+    this.fetchGenres();
+  }
+
+  fetchGenres(): void {
+  this.movieService.fetchGenres().subscribe({
+    next: (data: Genre[]) => {
+      console.log(data);
+      // Assuming this.genres is an array to store genre objects
+      if (Array.isArray(data)) { // Check if data is an array
+        this.genres = data;
+      } else {
+        console.error('Genres data is not an array');
+      }
+    },
+    error: (error) => {
+      console.error('Error fetching genres:', error);
+    }
+  });
+}
 
   search(): void {
     if (this.query.trim() !== '') {
       this.isLoading = true;
-      this.movieService.searchMovies(this.query).subscribe(
-        (movies: Movie[]) => {
+      this.movieService.searchMovies(this.query).subscribe({
+        next: (movies: Movie[]) => {
           this.searchResults = movies;
           this.isLoading = false;
         },
-        (error) => {
+        error: (error) => {
           console.error('Error searching movies:', error);
           this.isLoading = false;
         }
-      );
+      });
     } else {
       // Handle empty query
-      this.searchResults = [];
+      this.clearSearch();
     }
   }
 
@@ -40,4 +66,31 @@ export class SearchComponent {
     this.searchResults = [];
   }
   
+  getImgUrl(release_date: string) {
+    return this.utilService.getMoviePosterUrl(release_date);
+  }
+
+  getReleaseYear(releaseDate: string): number {
+    return this.utilService.getReleaseYear(releaseDate);
+  }
+
+  getGenreName(genreIds: number[]): string | undefined {
+  const genreMap: { [id: number]: string } = {};
+  this.genres.forEach(genre => {
+    genreMap[genre.id] = genre.name;
+  });
+
+  for (let id of genreIds) {
+    const genreName = genreMap[id];
+    if (genreName) {
+      return genreName; // Return the first matched genre name
+    }
+  }
+
+  return undefined; // Return undefined if no genre name is found
+}
+
+
+
+
 }
