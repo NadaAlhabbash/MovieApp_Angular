@@ -17,8 +17,8 @@
         <p>Find your movie by Type title, <br> categories, years, etc</p>
     </div>
 
-    <div class="search-body" *ngIf="searchResults.length > 0">
-        <div class="movie-card" *ngFor="let movie of searchResults">
+    <div class="search-body" *ngIf="searchResults.length > 0" >
+        <div class="movie-card" *ngFor="let movie of searchResults" [routerLink]="['/details', movie.id]">
             <img [src]="getImgUrl(movie.poster_path)"
                 alt="{{ movie.title }}">
         
@@ -59,7 +59,7 @@
                             stroke="#EEEEEE" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M8 4.5V8H11.5" stroke="#EEEEEE" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <span>{{ movie.runtime }}</span>
+                    <span>{{ movie.runtime }} Minutes</span>
                 </div>
             </div>
         </div>

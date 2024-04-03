@@ -48,6 +48,11 @@ export class SearchComponent implements OnInit {
         next: (movies: Movie[]) => {
           this.searchResults = movies;
           this.isLoading = false;
+          this.searchResults.forEach(movie => {
+          this.movieService.getMovieDuration(movie.id).subscribe(duration => {
+            movie.runtime = duration;
+          });
+        });
         },
         error: (error) => {
           console.error('Error searching movies:', error);
@@ -66,9 +71,14 @@ export class SearchComponent implements OnInit {
     this.searchResults = [];
   }
   
-  getImgUrl(release_date: string) {
-    return this.utilService.getMoviePosterUrl(release_date);
+  getImgUrl(Image_path: string): string {
+  if (Image_path && Image_path.trim() !== '') {
+    return this.utilService.getMoviePosterUrl(Image_path);
+  } else {
+    return 'https://c4.wallpaperflare.com/wallpaper/198/872/888/minimalism-404-not-found-numbers-simple-background-wallpaper-preview.jpg';
   }
+}
+
 
   getReleaseYear(releaseDate: string): number {
     return this.utilService.getReleaseYear(releaseDate);

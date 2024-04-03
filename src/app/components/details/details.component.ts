@@ -109,9 +109,15 @@ export class DetailsComponent implements OnInit {
     })
   }
 
-  getImgUrl(release_date: string) {
-    return this.utilService.getMoviePosterUrl(release_date);
+  getImgUrl(Image_path: string): string {
+  if (Image_path && Image_path.trim() !== '') {
+    return this.utilService.getMoviePosterUrl(Image_path);
+  } else {
+    return 'https://c4.wallpaperflare.com/wallpaper/198/872/888/minimalism-404-not-found-numbers-simple-background-wallpaper-preview.jpg';
   }
+}
+
+
 
   onNavItemClicked(itemName: string): void {
     // console.log('Navigated to:', itemName);
