@@ -25,7 +25,6 @@ export class SliderComponent implements OnInit {
     this.movieService.getTopRatedMovies().subscribe({
       next: (response) => { // Changed 'movies' to 'response'
         this.topRated = response.slice(0, 5); // Access 'results' property of the response
-        // console.log(this.topRated);        
       }
     });
   }

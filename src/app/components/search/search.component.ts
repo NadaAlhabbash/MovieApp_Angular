@@ -28,12 +28,6 @@ export class SearchComponent implements OnInit {
   this.movieService.fetchGenres().subscribe({
     next: (data: Genre[]) => {
       console.log(data);
-      // Assuming this.genres is an array to store genre objects
-      if (Array.isArray(data)) { // Check if data is an array
-        this.genres = data;
-      } else {
-        console.error('Genres data is not an array');
-      }
     },
     error: (error) => {
       console.error('Error fetching genres:', error);

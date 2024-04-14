@@ -19,17 +19,8 @@ export class DetailsComponent implements OnInit {
   movieId: number;
   reviews: Review;
   cast: CastMember;
-  // content: string = `From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government, undertaking high-risk black ops missions in exchange for commuted prison sentences.`;
-  // contentToShow: string;
   showReadMoreButton: boolean = false;
   activeTab: string = 'aboutMovie';
-  // showFullText: boolean = false;
-  // cast = [
-    // { name: 'Actor 1', photoUrl: '../../../assets/images/Ellipse 1 (1).png' },
-    // { name: 'Actor 2', photoUrl: '../../../assets/images/Ellipse 1 (1).png' },
-    // { name: 'Actor 3', photoUrl: '../../../assets/images/Ellipse 1 (1).png' }
-    // Add more cast members as needed
-  // ];
   isRatingPage: boolean = false;
 
   constructor(
@@ -37,17 +28,7 @@ export class DetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private watchlistService: WatchlistService,
     private utilService: UtilService
-    ) {
-      
-    // this.movieId = this.SelectedMovie.id;
-    // Initially, show the first 200 characters of the content
-    // this.contentToShow = this.content.slice(0, 200);
-
-    // If the content length exceeds 200 characters, show the "Read More" button
-    // if (this.content.length > 200) {
-    //   this.showReadMoreButton = true;
-    // }
-  }
+    ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -85,7 +66,6 @@ export class DetailsComponent implements OnInit {
     this.movieService.getMovieDetails(movieId).subscribe({
       next: (movie) => {
         this.SelectedMovie = movie;
-        // console.log(this.SelectedMovie);
       }
     })
   }
@@ -120,7 +100,6 @@ export class DetailsComponent implements OnInit {
 
 
   onNavItemClicked(itemName: string): void {
-    // console.log('Navigated to:', itemName);
     this.activeTab = itemName; 
 
     if (itemName === 'aboutMovie') {
