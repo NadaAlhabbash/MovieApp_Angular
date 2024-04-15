@@ -12,7 +12,7 @@ import { UtilService } from '../../services/utils/util.service';
 export class ToggleTapsComponent implements OnInit {
 
   nowPlayingMovies: Movie[] = [];
-  activeTab: string = 'nowPlaying'; // Initialize the active tab
+  activeTab: string = 'now_playing'; // Initialize the active tab
 
   constructor(
     private movieService: MovieService,
@@ -20,65 +20,19 @@ export class ToggleTapsComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    this.getNowPlayingMovies();
+    this.fetchMovies(this.activeTab);
   }
 
    onNavItemClicked(itemName: string): void {
     this.activeTab = itemName; 
-    // //Fetch movie photos based on the selected tab
-    if (itemName === 'nowPlaying') {
-
-      this.getNowPlayingMovies();
-    }
-
-    else if (itemName == 'upcoming') {
-
-      this.getUpcomingMovies();
-    }
-
-    else if (itemName == 'topRated') {
-
-      this.getTopRatedMovies();
-    }
-
-    else if (itemName == 'popular') {
-      this.getPopularMovies();
-    }
+    this.fetchMovies(itemName);
   }
 
-  getNowPlayingMovies(): void {
-  this.movieService.getNowPlayingMovies().subscribe({
-    next: (movies) => {
-      this.nowPlayingMovies = movies;
-      // console.log(this.nowPlayingMovies);
-    }    
-  });
-}
-  
-  getUpcomingMovies(): void {
-    this.movieService.getupcomingMovies().subscribe({
+  fetchMovies(tab: string): void {
+    this.movieService.getMovies(tab).subscribe({
       next: (movies) => {
-      this.nowPlayingMovies = movies;
-      // console.log(this.nowPlayingMovies);
-    }
-    });
-  }
-
-  getTopRatedMovies(): void {
-    this.movieService.getTopRatedMovies().subscribe({
-      next: (movies) => {
-      this.nowPlayingMovies = movies;
-      // console.log(this.nowPlayingMovies);
-    }
-    });
-  }
-
-  getPopularMovies(): void {
-    this.movieService.getPopularMovies().subscribe({
-      next: (movies) => {
-      this.nowPlayingMovies = movies;
-      // console.log(this.nowPlayingMovies);
-    }
+        this.nowPlayingMovies = movies;
+      }
     });
   }
 
