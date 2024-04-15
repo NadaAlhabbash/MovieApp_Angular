@@ -20,13 +20,6 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  // private getHeaders(): HttpHeaders {
-  //   return new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${this.accessToken}`
-  //   });
-  // }
-
   private getHeaders(): HttpHeaders {
   let headersConfig = {
     'Content-Type': 'application/json'
@@ -55,50 +48,13 @@ export class MovieService {
     return of<T>([] as T);
   }
 
-  // searchMovies(query: string): Observable<Movie[]> {
-  //   const url = `${this.apiUrl}/search/movie`;
-  //   const params = { query };
-  //   return this.fetchData<Movie[]>(url, params)
-  //     .pipe(
-  //       map(response => {
-  //         console.log(response.results);
-  //         return response.results;
-  //       }),
-  //       catchError(this.handleError),
-  //     );
-  // }
-
-  // getGeners(): Observable<any> {
-  //   const url = `{this.apiUrl}/genre/movie/list`
-  //   return this.fetchData<any>(url)
-  //   .pipe(
-  //     map(response => {
-  //       console.log(response);
-  //       return response;  
-  //     })
-  //   )
-  // }
-
-  getNowPlayingMovies(): Observable<Movie[]> {
-    const url = `${this.apiUrl}/movie/now_playing`;    
+  getMovies(type: string): Observable<Movie[]> {
+    const url = `${this.apiUrl}/movie/${type}`;
     return this.fetchData<Movie[]>(url)
-    .pipe(
-    map(response => {
-      return response.results;
-    }),
-    catchError(this.handleError),
-    );;
-  }
-
-  getupcomingMovies(): Observable<Movie[]> {
-    const url = `${this.apiUrl}/movie/upcoming`;    
-    return this.fetchData<Movie[]>(url)
-    .pipe(
-    map(response => {
-      return response.results;
-    }),
-    catchError(this.handleError),
-    );;
+      .pipe(
+        map(response => response.results),
+        catchError(this.handleError),
+      );
   }
 
   getTopRatedMovies(): Observable<Movie[]> {
@@ -110,17 +66,6 @@ export class MovieService {
     }),
     catchError(this.handleError),
     );
-  }
-
-  getPopularMovies(): Observable<Movie[]> {
-    const url = `${this.apiUrl}/movie/popular`;    
-    return this.fetchData<Movie[]>(url)
-    .pipe(
-    map(response => {
-      return response.results;
-    }),
-    catchError(this.handleError),
-    );;
   }
 
   getMovieDetails(movie_id): Observable<Movie> {

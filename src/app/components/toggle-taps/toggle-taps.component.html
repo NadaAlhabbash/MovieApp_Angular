@@ -1,14 +1,14 @@
 <div class="img-container">
 
     <div class="navbar">
-        <div class="nav-item" (click)="onNavItemClicked('nowPlaying')"
-            [ngClass]="{ 'active': activeTab === 'nowPlaying' }">
+        <div class="nav-item" (click)="onNavItemClicked('now_playing')"
+            [ngClass]="{ 'active': activeTab === 'now_playing' }">
             Now Playing
         </div>
         <div class="nav-item" (click)="onNavItemClicked('upcoming')" [ngClass]="{ 'active': activeTab === 'upcoming' }">
             Upcoming
         </div>
-        <div class="nav-item" (click)="onNavItemClicked('topRated')" [ngClass]="{ 'active': activeTab === 'topRated' }">
+        <div class="nav-item" (click)="onNavItemClicked('top_rated')" [ngClass]="{ 'active': activeTab === 'top_rated' }">
             Top rated
         </div>
         <div class="nav-item" (click)="onNavItemClicked('popular')" [ngClass]="{ 'active': activeTab === 'popular' }">
@@ -18,7 +18,7 @@
 
     <div class="tab-content">
         <!-- Different content for each tab -->
-        <div *ngIf="activeTab === 'nowPlaying'">
+        <div *ngIf="activeTab === 'now_playing'">
             <div class="movie-photos">
                 <img *ngFor="let movie of nowPlayingMovies" [src]="getImgUrl(movie.poster_path)"
                     alt="{{ movie.title }}" [routerLink]="['/details', movie.id]">
@@ -30,7 +30,7 @@
                     alt="{{ movie.title }}" [routerLink]="['/details', movie.id]">
             </div>
         </div>
-        <div *ngIf="activeTab === 'topRated'">
+        <div *ngIf="activeTab === 'top_rated'">
             <div class="movie-photos">
                 <img *ngFor="let movie of nowPlayingMovies" [src]="getImgUrl(movie.poster_path)"
                     alt="{{ movie.title }}" [routerLink]="['/details', movie.id]">
