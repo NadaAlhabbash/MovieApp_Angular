@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie, Genre } from '../../models/movie';
-import { MovieService } from '../../services/Movie/movie.service';
-import { UtilService } from '../../services/utils/util.service';
+import { Movie, Genre } from '@models/movie';
+import { MovieService } from '@services/Movie/movie.service';
+import { UtilService } from '@services/utils/util.service';
 
 @Component({
   selector: 'app-search',
