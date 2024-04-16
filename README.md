@@ -10,7 +10,7 @@ This Angular application offers users the ability to search for movies by title,
 - *Add to Watchlist:* Users can add movies to their watchlists for later viewing.
 
 ## Live Demo
-For a live demo of the Movie App, You can try the app online at [Movie App](https://movieappangular.netlify.app/home)
+For a live demo of the Movie App, You can try the app online at [Movie App](https://movieappangular.netlify.app)
 
 ## Technologies Used
 - *Angular:* Frontend framework for building the user interface and managing application state.
