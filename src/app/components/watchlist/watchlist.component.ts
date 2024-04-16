@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../../models/movie';
-import { WatchlistService } from '../../services/Watchlist/watchlist.service';
-import { UtilService } from '../../services/utils/util.service';
+import { Movie } from '@models/movie';
+import { WatchlistService } from '@services/Watchlist/watchlist.service';
+import { UtilService } from '@services/utils/util.service';
 
 
 @Component({

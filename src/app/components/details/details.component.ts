@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../../services/Movie/movie.service';
-import { Movie } from '../../models/movie';
+import { MovieService } from '@services/Movie/movie.service';
+import { Movie } from '@models/movie';
 import { ActivatedRoute } from '@angular/router';
-import { Review } from '../../models/review';
-import { CastMember } from '../../models/cast';
-import { WatchlistService } from '../../services/Watchlist/watchlist.service';
-import { UtilService } from '../../services/utils/util.service';
+import { Review } from '@models/review';
+import { CastMember } from '@models/cast';
+import { WatchlistService } from '@services/Watchlist/watchlist.service';
+import { UtilService } from '@services/utils/util.service';
 
 
 @Component({

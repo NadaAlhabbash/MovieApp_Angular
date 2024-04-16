@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
-import { Movie, Genre } from '../../models/movie';
-import { Review } from '../../models/review';
-import { CastMember } from '../../models/cast';
+import { environment } from '@environment/environment';
+import { Movie, Genre } from '@models/movie';
+import { Review } from '@models/review';
+import { CastMember } from '@models/cast';
 
 
 @Injectable({
